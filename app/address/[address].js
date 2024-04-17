@@ -28,9 +28,9 @@ export default function AddressPage() {
   const [txs, setTxs] = useState();
   const [displayOpts, setDisplayOpts] = useState(false);
 
-  // useEffect(() => {
-  //   load();
-  // }, []);
+  useEffect(() => {
+    load();
+  }, []);
 
   const load = async () => {
     setLoading(true);
