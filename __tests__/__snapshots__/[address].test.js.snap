@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddressPage /> renders correctly 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  MockScreen
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "height": 100,
+        "justifyContent": "center",
+        "position": "relative",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 32,
+        }
+      }
+    >
+      $
+      0
+    </Text>
+    <View
+      style={
+        {
+          "height": "100%",
+          "justifyContent": "center",
+          "position": "absolute",
+          "right": 12,
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        onPress={[Function]}
+        selectable={false}
+        style={
+          [
+            {
+              "color": "black",
+              "fontSize": 24,
+            },
+            undefined,
+            {
+              "fontFamily": "ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            {},
+          ]
+        }
+      >
+        
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "backgroundColor": "#f0f0f0",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "white",
+          "borderRadius": 8,
+          "flex": 1,
+        }
+      }
+    >
+      <RCTScrollView
+        getItem={[Function]}
+        getItemCount={[Function]}
+        initialNumToRender={5}
+        keyExtractor={[Function]}
+        onContentSizeChange={[Function]}
+        onLayout={[Function]}
+        onMomentumScrollBegin={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onRefresh={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        refreshControl={
+          <RefreshControlMock
+            onRefresh={[Function]}
+            refreshing={true}
+          />
+        }
+        refreshing={true}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={0.0001}
+        stickyHeaderIndices={[]}
+        viewabilityConfigCallbackPairs={[]}
+      >
+        <RCTRefreshControl />
+        <View />
+      </RCTScrollView>
+    </View>
+  </View>
+</View>
+`;

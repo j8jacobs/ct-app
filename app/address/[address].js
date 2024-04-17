@@ -13,6 +13,13 @@ import Tx from "../../lib/components/Tx";
 import { getAddressData, removeAddress } from "../../lib/api";
 import { Ionicons } from "@expo/vector-icons";
 
+// export default function AddressPage() {
+//   return (
+//     <View>
+//       <Text>hi</Text>
+//     </View>
+//   );
+// }
 export default function AddressPage() {
   const { address, final_balance, n_tx } = useLocalSearchParams();
   const [loading, setLoading] = useState(true);
@@ -21,9 +28,9 @@ export default function AddressPage() {
   const [txs, setTxs] = useState();
   const [displayOpts, setDisplayOpts] = useState(false);
 
-  useEffect(() => {
-    load();
-  }, []);
+  // useEffect(() => {
+  //   load();
+  // }, []);
 
   const load = async () => {
     setLoading(true);
