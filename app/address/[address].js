@@ -9,7 +9,7 @@ import {
 import { Stack, router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { computeUSDFromSatoshi, simplifyAddress } from "../../lib/util";
-import Tx from "./Tx";
+import Tx from "../../lib/components/Tx";
 import { getAddressData, removeAddress } from "../../lib/api";
 import { Ionicons } from "@expo/vector-icons";
 
