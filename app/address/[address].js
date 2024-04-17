@@ -4,12 +4,16 @@ import {
   StyleSheet,
   FlatList,
   ActivityIndicator,
+  Alert,
 } from "react-native";
-import { Stack, useLocalSearchParams } from "expo-router";
+import { Stack, router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { computeUSDFromSatoshi, simplifyAddress } from "../../lib/util";
 import Tx from "./Tx";
-import { getAddressData } from "../../lib/api";
+import { getAddressData, removeAddress } from "../../lib/api";
+import { Feather } from "@expo/vector-icons";
+import WalletOptionsModal from "../../lib/components/WalletOptionsModal";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function AddressPage() {
   const { address, final_balance, n_tx } = useLocalSearchParams();
@@ -17,6 +21,7 @@ export default function AddressPage() {
   const [balance, setBalance] = useState(final_balance);
   const [totalTxs, setTotalTxs] = useState(n_tx);
   const [txs, setTxs] = useState();
+  const [displayOpts, setDisplayOpts] = useState(false);
 
   useEffect(() => {
     load();
@@ -35,6 +40,23 @@ export default function AddressPage() {
     setLoading(false);
   };
 
+  const onRemoveAddress = async () => {
+    const msg = `Are you sure you would like to remove this addresses from your watch list?`;
+    Alert.alert("Remove Address", msg, [
+      {
+        text: "Cancel",
+        style: "cancel",
+      },
+      {
+        text: "OK",
+        onPress: async () => {
+          await removeAddress(address);
+          router.back();
+        },
+      },
+    ]);
+  };
+
   if (loading && final_balance == undefined) {
     return <ActivityIndicator />;
   }
@@ -49,6 +71,21 @@ export default function AddressPage() {
         <Text style={styles.balance}>
           ${computeUSDFromSatoshi(balance).toLocaleString("en-US")}
         </Text>
+        <View
+          style={{
+            position: "absolute",
+            right: 12,
+            height: "100%",
+            justifyContent: "center",
+          }}
+        >
+          <Ionicons
+            name="remove-circle"
+            size={24}
+            color="black"
+            onPress={onRemoveAddress}
+          />
+        </View>
       </View>
       <View style={styles.txCtr}>
         <View style={styles.txTable}>
@@ -81,6 +118,7 @@ const styles = StyleSheet.create({
     height: 100,
     justifyContent: "center",
     alignItems: "center",
+    position: "relative",
   },
   balance: {
     fontSize: 32,

@@ -18,8 +18,8 @@ const TEST = ["bc1q0sg9rdst255gtldsmcf8rk0764avqy2h2ksqs5"];
 export default function App() {
   const [adding, setAdding] = useState(false);
   const [addresses, setAddresses] = useState([]);
-  const { sendMessage, lastMessage } = useContext(WebSocketContext);
 
+  // const { sendMessage, lastMessage } = useContext(WebSocketContext);
   // can't subscribe while API credits are out
   // useEffect(() => {
   //   for (let addr of addresses) {
