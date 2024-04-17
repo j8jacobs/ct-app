@@ -16,19 +16,15 @@ export default function App() {
     for (let addr of addresses) {
       console.log(addr);
       sendMessage(
-        // JSON.stringify({
-        //   op: "addr_sub",
-        //   addr,
-        // })
         JSON.stringify({
-          op: "ping",
+          op: "addr_sub",
+          addr,
         })
       );
     }
   }, [addresses]);
 
   useEffect(() => {
-    console.log("res: ", lastMessage);
     if (lastMessage) {
       console.log(typeof lastMessage, JSON.parse(lastMessage.data));
     }
