@@ -11,10 +11,10 @@ import { computeUSDFromSatoshi } from "../../lib/util";
 import Tx from "./Tx";
 
 export default function AddressPage() {
-  const { address } = useLocalSearchParams();
+  const { address, final_balance, n_tx } = useLocalSearchParams();
   const [loading, setLoading] = useState(true);
-  const [balance, setBalance] = useState();
-  const [totalTxs, setTotalTxs] = useState();
+  const [balance, setBalance] = useState(final_balance);
+  const [totalTxs, setTotalTxs] = useState(n_tx);
   const [txs, setTxs] = useState();
 
   useEffect(() => {
@@ -24,7 +24,9 @@ export default function AddressPage() {
   const load = async () => {
     setLoading(true);
     try {
+      console.log("--- address ", address);
       const res = await fetch(`https://blockchain.info/rawaddr/${address}`);
+      console.log(res.ok, res.status, res.statusText);
       const data = await res.json();
       setBalance(data.final_balance);
       setTotalTxs(data.n_tx);
@@ -35,7 +37,7 @@ export default function AddressPage() {
     setLoading(false);
   };
 
-  if (loading && !txs) {
+  if (loading && final_balance == undefined) {
     return <ActivityIndicator />;
   }
   return (
