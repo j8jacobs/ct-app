@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import { Stack, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { computeUSDFromSatoshi } from "../../lib/util";
+import { computeUSDFromSatoshi, simplifyAddress } from "../../lib/util";
 import Tx from "./Tx";
 import { getAddressData } from "../../lib/api";
 
@@ -42,10 +42,7 @@ export default function AddressPage() {
     <View style={styles.ctr}>
       <Stack.Screen
         options={{
-          title: `${address.slice(0, 4)}-${address.slice(
-            address.length - 4,
-            address.length
-          )}`,
+          title: simplifyAddress(address),
         }}
       />
       <View style={styles.balanceCtr}>
