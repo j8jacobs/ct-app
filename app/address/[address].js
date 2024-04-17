@@ -9,6 +9,7 @@ import { Stack, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { computeUSDFromSatoshi } from "../../lib/util";
 import Tx from "./Tx";
+import { getAddressData } from "../../lib/api";
 
 export default function AddressPage() {
   const { address, final_balance, n_tx } = useLocalSearchParams();
@@ -24,10 +25,7 @@ export default function AddressPage() {
   const load = async () => {
     setLoading(true);
     try {
-      console.log("--- address ", address);
-      const res = await fetch(`https://blockchain.info/rawaddr/${address}`);
-      console.log(res.ok, res.status, res.statusText);
-      const data = await res.json();
+      const data = await getAddressData(address);
       setBalance(data.final_balance);
       setTotalTxs(data.n_tx);
       setTxs(data.txs);
