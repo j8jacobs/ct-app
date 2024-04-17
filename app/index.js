@@ -8,6 +8,19 @@ import AddressCard from "../lib/components/AddressCard";
 import { useFocusEffect } from "expo-router";
 // import { WebSocketContext } from "../lib/contexts/WebSocketProvider";
 
+// export default function App() {
+//   const [adding, setAdding] = useState(false);
+//   const [addresses, setAddresses] = useState([]);
+
+//   useFocusEffect(useCallback(() => {}, []));
+
+//   return (
+//     <View>
+//       <Text>hi</Text>
+//     </View>
+//   );
+// }
+
 export default function App() {
   const [adding, setAdding] = useState(false);
   const [addresses, setAddresses] = useState([]);

@@ -1,4 +1,3 @@
-import { Text } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Stack } from "expo-router/stack";
 import { ModalPortal } from "react-native-modals";
