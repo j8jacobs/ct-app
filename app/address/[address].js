@@ -11,8 +11,6 @@ import { useEffect, useState } from "react";
 import { computeUSDFromSatoshi, simplifyAddress } from "../../lib/util";
 import Tx from "./Tx";
 import { getAddressData, removeAddress } from "../../lib/api";
-import { Feather } from "@expo/vector-icons";
-import WalletOptionsModal from "../../lib/components/WalletOptionsModal";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function AddressPage() {
